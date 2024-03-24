@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurnTracker.Views.EditEncounterPage"
+             Title="EditEncounterPage">
+    <VerticalStackLayout>
+
+        <Label 
+     Text="Edit Encounter"
+     Style="{StaticResource Headline}"
+     VerticalOptions="Center" 
+     HorizontalOptions="Center" />
+        <Label
+     Text="Here you can add creatures and players to an encounter and track their turns."
+     HorizontalOptions="Center"/>
+
+        <Grid ColumnDefinitions="200, 120, 120, 200, 120, 120, 120, 120"
+       RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+       ColumnSpacing="10"
+       RowSpacing="20">
+
+            <!--Player Character Controls!-->
+            <Button
+         Text="Add PC"
+         WidthRequest="100"
+         x:Name="AddPCButton"
+         Clicked="OnAddPCClicked"/>
+            <Button
+         Text="Reset"
+         WidthRequest="100"
+         x:Name="ResetPCButton"
+         IsVisible="False"
+         Clicked="OnResetClicked"/>
+            <Button
+         Grid.Column="1"
+         Text="Remove PC"
+         x:Name="RemovePCButton"
+         Clicked="OnRemovePCClicked"/>
+            <Button
+         Grid.Column="2"
+         Grid.Row="1"
+         Text="Add PCs"
+         x:Name="AddListOfPCsButton"
+         Clicked="OnAddPCsClicked"/>
+            <Button
+            Grid.Column="6"
+            Text="Go to Combat"
+            Clicked="GoToCombatClicked"/>
+            <Entry
+         Grid.Row="1"
+         Placeholder="Name"
+         x:Name="PC1"/>
+            <Entry
+         Grid.Row="1"
+         Grid.Column="1"
+         Placeholder="Initiative"
+         x:Name="PC1Initiative"/>
+
+            <Entry
+         Grid.Row="2"
+         Placeholder="Name"
+         IsVisible="False"
+         x:Name="PC2"/>
+            <Entry
+        Grid.Row="2"
+        Grid.Column="1"
+        Placeholder="Initiative"
+        IsVisible="False"
+        x:Name="PC2Initiative"/>
+
+            <Entry
+         Grid.Row="3"
+         Placeholder="Name"
+         IsVisible="False"
+         x:Name="PC3"/>
+            <Entry
+        Grid.Row="3"
+        Grid.Column="1"
+        Placeholder="Initiative"
+        IsVisible="False"
+        x:Name="PC3Initiative"/>
+
+            <Entry
+         Grid.Row="4"
+         Placeholder="Name"
+         IsVisible="False"
+         x:Name="PC4"/>
+            <Entry
+        Grid.Row="4"
+        Grid.Column="1"
+        Placeholder="Initiative"
+        IsVisible="False"
+        x:Name="PC4Initiative"/>
+
+            <Entry
+         Grid.Row="5"
+         Placeholder="Name"
+         IsVisible="False"
+         x:Name="PC5"/>
+            <Entry
+        Grid.Row="5"
+        Grid.Column="1"
+        Placeholder="Initiative"
+        IsVisible="False"
+        x:Name="PC5Initiative"/>
+
+            <Entry
+         Grid.Row="6"
+         Placeholder="Name"
+         IsVisible="False"
+         x:Name="PC6"/>
+            <Entry
+        Grid.Row="6"
+        Grid.Column="1"
+        Placeholder="Initiative"
+        IsVisible="False"
+        x:Name="PC6Initiative"/>
+
+            <!--Creature Controls-->
+            <Button
+         Grid.Column="3"
+         Grid.Row="0"
+         WidthRequest="120"
+         Text="Add NPC"
+         x:Name="AddNPCButton"
+         Clicked="OnAddNPCClicked"/>
+            <Button
+         Grid.Column="3"
+         Grid.Row="0"
+         WidthRequest="120"
+         Text="Reset"
+         x:Name="ResetNPCButton"
+         IsVisible="False"
+         Clicked="OnResetNPCClicked"/>
+            <Button
+         Grid.Column="4"
+         Text="Remove NPC"
+         x:Name="RemoveNPCButton"
+         Clicked="OnRemoveNPCClicked"/>
+            <Button
+         Grid.Column="7"
+         Grid.Row="1"
+         Text="Add NPCs"
+         x:Name="AddListOfNPCButton"
+         Clicked="OnAddNPCsClicked"/>
+
+
+            <!-- Entries for Creatures -->
+
+            <Entry
+         x:Name="Creature1Entry"
+         Grid.Row="1"
+         Grid.Column="3"
+         Placeholder="Name"/>
+            <Entry
+         x:Name="Creature1AmountEntry"
+         Grid.Row="1"
+         Grid.Column="4"
+         Placeholder="Amount"/>
+            <Entry
+         x:Name="Creature1InitiativeEntry"
+         Grid.Row="1"
+         Grid.Column="5"
+         Placeholder="Initiative"/>
+            <Entry
+         x:Name="Creature1HPEntry"
+         Placeholder="Max HP"
+         Grid.Row="1"
+         Grid.Column="6"/>
+
+            <Entry
+         x:Name="Creature2Entry"
+         Grid.Row="2"
+         Grid.Column="3"
+         IsVisible="False"
+         Placeholder="Name"/>
+            <Entry
+         x:Name="Creature2AmountEntry"
+         Grid.Row="2"
+         Grid.Column="4"
+         IsVisible="False"
+         Placeholder="Amount"/>
+            <Entry
+         x:Name="Creature2InitiativeEntry"
+         Grid.Row="2"
+         Grid.Column="5"
+         IsVisible="False"
+         Placeholder="Initiative"/>
+            <Entry
+         x:Name="Creature2HPEntry"
+         Placeholder="Max HP"
+         Grid.Row="2"
+         IsVisible="False"
+         Grid.Column="6"/>
+
+            <Entry
+         x:Name="Creature3Entry"
+         Grid.Row="3"
+         Grid.Column="3"
+         IsVisible="False"
+         Placeholder="Name"/>
+            <Entry
+         x:Name="Creature3AmountEntry"
+         Grid.Row="3"
+         Grid.Column="4"
+         IsVisible="False"
+         Placeholder="Amount"/>
+            <Entry
+         x:Name="Creature3InitiativeEntry"
+         Grid.Row="3"
+         Grid.Column="5"
+         IsVisible="False"
+         Placeholder="Initiative"/>
+            <Entry
+         x:Name="Creature3HPEntry"
+         Placeholder="Max HP"
+         Grid.Row="3"
+         IsVisible="False"
+         Grid.Column="6"/>
+
+            <Entry
+         x:Name="Creature4Entry"
+         Grid.Row="4"
+         Grid.Column="3"
+         IsVisible="False"
+         Placeholder="Name"/>
+            <Entry
+         x:Name="Creature4AmountEntry"
+         Grid.Row="4"
+         Grid.Column="4"
+         IsVisible="False"
+         Placeholder="Amount"/>
+            <Entry
+         x:Name="Creature4InitiativeEntry"
+         Grid.Row="4"
+         Grid.Column="5"
+         IsVisible="False"
+         Placeholder="Initiative"/>
+            <Entry
+         x:Name="Creature4HPEntry"
+         Placeholder="Max HP"
+         Grid.Row="4"
+         IsVisible="False"
+         Grid.Column="6"/>
+
+            <Entry
+         x:Name="Creature5Entry"
+         Grid.Row="5"
+         Grid.Column="3"
+         IsVisible="False"
+         Placeholder="Name"/>
+            <Entry
+         x:Name="Creature5AmountEntry"
+         Grid.Row="5"
+         Grid.Column="4"
+         IsVisible="False"
+         Placeholder="Amount"/>
+            <Entry
+         x:Name="Creature5InitiativeEntry"
+         Grid.Row="5"
+         Grid.Column="5"
+         IsVisible="False"
+         Placeholder="Initiative"/>
+            <Entry
+         x:Name="Creature5HPEntry"
+         Placeholder="Max HP"
+         Grid.Row="5"
+         IsVisible="False"
+         Grid.Column="6"/>
+
+            <Entry
+         x:Name="Creature6Entry"
+         Grid.Row="6"
+         Grid.Column="3"
+         IsVisible="False"
+         Placeholder="Name"/>
+            <Entry
+         x:Name="Creature6AmountEntry"
+         Grid.Row="6"
+         Grid.Column="4"
+         IsVisible="False"
+         Placeholder="Amount"/>
+            <Entry
+         x:Name="Creature6InitiativeEntry"
+         Grid.Row="6"
+         Grid.Column="5"
+         IsVisible="False"
+         Placeholder="Initiative"/>
+            <Entry
+         x:Name="Creature6HPEntry"
+         Placeholder="Max HP"
+         Grid.Row="6"
+         IsVisible="False"
+         Grid.Column="6"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
